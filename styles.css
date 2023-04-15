@@ -1,4 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
 
+}
+
+.character-grid{
+    display: grid;
+    grid-template-columns: repeat(8, 70px);
+}
+
+.start-button{
+    color: aquamarine;
+}
 
 footer{
     position: fixed;

@@ -1,4 +1,9 @@
 "use strict";
+const titleScreen = () => {
+    const titleContainer = document.querySelector('.titleScreen');
+    const startButton = document.querySelector('.start-button');
+
+};
 
 // Welcome Screen
 // Choose your character
@@ -7,25 +12,20 @@
 // Loser's profile picture flies out of the screen.
 // continue overlap screen with countdown
 
-const gameBoard = (() => {
-    let gameboard = [
-        ['','',''],
-        ['','',''],
-        ['','',''],
-    ] 
+// const gameBoard = (() => {
+//     let gameboard = [
+//         ['','',''],
+//         ['','',''],
+//         ['','',''],
+//     ] 
 
-    // Leaving the gameboard blank squares blank so I can assign "X" and "O" with each click/player.
-    return {gameboard};
-})();
+//     // Leaving the gameboard blank squares blank so I can assign "X" and "O" with each click/player.
+//     return {gameboard};
+// })();
 
 
-console.log(gameBoard);
+// console.log(gameBoard);
 
-const Player = ((name, character) => {
-    //each player has a name and the character that they chose.
-    const getName = () => name;
-    const getCharacter = () => character;
-    const die = () => {
-        //omae wa mou shindeiru
-    }
-})();
+//IIFE Immediately Invoked Function Expression
+
+
