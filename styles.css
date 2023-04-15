@@ -6,7 +6,46 @@
 
 .character-grid{
     display: grid;
-    grid-template-columns: repeat(8, 70px);
+    grid-template-columns: repeat(8, 104px);
+    grid-template-rows: repeat(2, 103px);
+    justify-content: center;
+    align-items: center;
+}
+
+.character{
+    width: 100px;
+    height: 100px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 3fr 1fr;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+
+.character-thumbnail{
+    max-width: 100%;
+    max-height: 100%;
+    grid-row: 1/2;
+}
+
+.character:hover .character-thumbnail,
+.character:focus .character-thumbnail {
+    transform: scale(1.1);
+}
+
+.charName{
+    grid-row: 2/3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1 ;
+    color: black;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: rgb(241, 88, 88);
+    font-size: 19px;
 }
 
 .start-button{
