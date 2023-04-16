@@ -21,74 +21,117 @@
         </div>
         <div class="choose-character screen-three">
             <div class="return"></div>
-
-            <div class="character-grid">
-                <div class="character" id="mario">
-                    <img src="./images/mario.jpg" alt="" class="character-thumbnail">
-                    <div class="charName">Mario</div>
-                </div>
-                <div class="character" id="kirby">
-                    <img src="./images/kirby.jpg" alt="" class="character-thumbnail">
-                    <div class="charName">Kirby</div>
-                </div>
-                <div class="character" id="luigi">
-                    <img src="./images/luigi.jpg" alt="" class="character-thumbnail">
-                    <div class="charName">Luigi</div>
-                </div>
-                <div class="character" id="yoshi">
-                    <img class="character-thumbnail" src="./images/yoshi.jpg" alt="">
-                    <div class="charName">Yoshi</div>
-                </div>
-                <div class="character" id="link">
-                    <img src="./images/link.jpg" alt="" class="character-thumbnail">
-                    <div class="charName">Link</div>
-                </div>
-                <div class="character" id="donkey-kong">
-                    <img src="./images/donkey-kong.jpg" alt="" class="character-thumbnail">
-                    <div class="charName">Donkey Kong</div>
-                </div>
-                <div class="character" id="bowser">
-                    <img src="./images/bowser.jpg" alt="" class="character-thumbnail">
-                    <div class="charName">Bowser</div>
-                </div>
-                <div class="character" id="pikachi">
-                    <img src="./images/pikachu.jpg" alt="" class="character-thumbnail">
-                    <div class="charName">Pikachi</div>
-                </div>
-                <div class="character" id="sonic">
-                    <img src="./images/sonic.jpg" alt="" class="character-thumbnail">
-                    <div class="charName">Sonic</div>
-                </div>
-                <div class="character" id="saitama">
-                    <img src="./images/saitama.jpg" alt="" class="character-thumbnail">
-                    <div class="charName">Saitama</div>
-                </div>
-                <div class="character" id="genos">
-                    <img src="./images/genos.jpg" alt="" class="character-thumbnail">
-                    <div class="charName">Genos</div>
-                </div>
-                <div class="character" id="sephiroth">
-                    <img src="./images/sephiroth.jpg" alt="" class="character-thumbnail">
-                    <div class="charName">Sephiroth</div>
-                </div>
-                <div class="character" id="jotaro">
-                    <img src="./images/jojo.jpg" alt="" class="character-thumbnail">
-                    <div class="charName">Jotaro</div>
-                </div>
-                <div class="character" id="frieza">
-                    <img src="./images/frieza.jpg" alt="" class="character-thumbnail">
-                    <div class="charName">Frieza</div>
-                </div>
-                <div class="character" id="jin-kazama">
-                    <img src="./images/jin-kazama.jpg" alt="" class="character-thumbnail">
-                    <div class="charName">Jin Kazama</div>
-                </div>
-                <div class="character" id="aizen">
-                    <img src="./images/aizen.jpg" alt="" class="character-thumbnail">
-                    <div class="charName">Aizen</div>
+            <audio id="character-select-music" autoplay>
+                <source src="/sound/select-character-music.mp3"/>
+            </audio>
+            <div class="charSelContainer">
+                <div class="character-grid">
+                    <div class="character" id="mario">
+                        <div class="charImage">
+                            <img src="./images/mario.jpg" alt="" class="character-thumbnail">
+                        </div>
+                        <div class="charName">Mario</div>
+                    </div>
+                    <div class="character" id="kirby">
+                        <div class="charImage">
+                            <img src="./images/kirby.jpg" alt="" class="character-thumbnail">                            
+                        </div>
+                        <div class="charName">Kirby</div>
+                    </div>
+                    <div class="character" id="luigi">
+                        <div class="charImage">
+                            <img src="./images/luigi.jpg" alt="" class="character-thumbnail">                          
+                        </div>
+                        <div class="charName">Luigi</div>
+                    </div>
+                    <div class="character" id="yoshi">
+                        <div class="charImage">
+                            <img class="character-thumbnail" src="./images/yoshi.jpg" alt="">
+                        </div>
+                        <div class="charName">Yoshi</div>
+                    </div>
+                    <div class="character" id="link">
+                        <div class="charImage">
+                            <img src="./images/link.jpg" alt="" class="character-thumbnail">                           
+                        </div>
+                        <div class="charName">Link</div>
+                    </div>
+                    <div class="character" id="donkey-kong">
+                        <div class="charImage">
+                            <img src="./images/donkey-kong.jpg" alt="" class="character-thumbnail">                           
+                        </div>
+                        <div class="charName">Donkey</div>
+                    </div>
+                    <div class="character" id="bowser">
+                        <div class="charImage">
+                            <img src="./images/bowser.jpg" alt="" class="character-thumbnail">                            
+                        </div>
+                        <div class="charName">Bowser</div>
+                    </div>
+                    <div class="character" id="pikachi">
+                        <div class="charImage">
+                            <img src="./images/pikachu.jpg" alt="" class="character-thumbnail">                            
+                        </div>
+                        <div class="charName">Pikachi</div>
+                    </div>
+                    <div class="character" id="sonic">
+                        <div class="charImage">
+                            <img src="./images/sonic.jpg" alt="" class="character-thumbnail">                            
+                        </div>
+                        <div class="charName">Sonic</div>
+                    </div>
+                    <div class="character" id="saitama">
+                        <div class="charImage">
+                            <img src="./images/saitama.jpg" alt="" class="character-thumbnail">                           
+                        </div>
+                        <div class="charName">Saitama</div>
+                    </div>
+                    <div class="character" id="genos">
+                        <div class="charImage">
+                            <img src="./images/genos.jpg" alt="" class="character-thumbnail">                           
+                        </div>
+                        <div class="charName">Genos</div>
+                    </div>
+                    <div class="character" id="sephiroth">
+                        <div class="charImage">
+                            <img src="./images/sephiroth.jpg" alt="" class="character-thumbnail">                            
+                        </div>
+                        <div class="charName">Sephiroth</div>
+                    </div>
+                    <div class="character" id="jotaro">
+                        <div class="charImage">
+                            <img src="./images/jojo.jpg" alt="" class="character-thumbnail">       
+                        </div>
+                        <div class="charName">Jotaro</div>
+                    </div>
+                    <div class="character" id="frieza">
+                        <div class="charImage">
+                            <img src="./images/frieza.jpg" alt="" class="character-thumbnail">                            
+                        </div>
+                        <div class="charName">Frieza</div>
+                    </div>
+                    <div class="character" id="jin-kazama">
+                        <div class="charImage">
+                            <img src="./images/jin-kazama.jpg" alt="" class="character-thumbnail">                            
+                        </div>
+                        <div class="charName">Jin</div>
+                    </div>
+                    <div class="character" id="aizen">
+                        <div class="charImage">
+                            <img src="./images/aizen.jpg" alt="" class="character-thumbnail">         
+                        </div>
+                        <div class="charName">Aizen</div>
+                    </div>
                 </div>
             </div>
+            <div class="character-profile">
+                <div class="left-player">
 
+                </div>
+                <div class="right-player">
+
+                </div>
+            </div>
             <div class="ready-to-fight"></div>
         </div>
 
