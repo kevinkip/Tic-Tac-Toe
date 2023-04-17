@@ -1,25 +1,24 @@
 "use strict";
+const element = characters.addEventListener("mouseover", (e) => {
+    console.log(e);
+})
 
 const titleScreen = () => {
     const titleContainer = document.querySelector('.titleScreen');
     const startButton = document.querySelector('.start-button');
-    const characters = document.querySelectorAll('.character');
+    const characters = document.querySelectorAll('.charName');
     const leftProfile = document.querySelector('.left-profile');
-
-    characters.forEach('mouseover', (event) => {
-        if(event.characters.id == 'mario' ){
-            leftProfile
-        }
-    })
-
-    const showLargeCharacter = (name) => {
-        switch(name){
-            case 'mario':
-                leftProfile.backgroundImage="url('')"
-        }
+    
+    return {
+        titleContainer,
+        startButton,
+        characters,
+        leftProfile
     }
+
 };
 
+console.log(titleScreen.element);
 // Welcome Screen
 // Choose your character
 // Loading screen with fighters looking at each other
