@@ -1,4 +1,6 @@
 "use strict";
+const characters = document.querySelectorAll('.charName');
+
 const element = characters.addEventListener("mouseover", (e) => {
     console.log(e);
 })
@@ -6,7 +8,6 @@ const element = characters.addEventListener("mouseover", (e) => {
 const titleScreen = () => {
     const titleContainer = document.querySelector('.titleScreen');
     const startButton = document.querySelector('.start-button');
-    const characters = document.querySelectorAll('.charName');
     const leftProfile = document.querySelector('.left-profile');
     
     return {
