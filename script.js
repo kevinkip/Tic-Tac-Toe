@@ -1,14 +1,19 @@
 "use strict";
-const characters = document.querySelectorAll('.charName');
 
-const element = characters.addEventListener("mouseover", (e) => {
-    console.log(e);
+const mario = document.querySelector('#mario');
+const leftProfile = document.querySelector('.left-profile');
+const firstPlayer = document.querySelector('.full-size-player')
+
+mario.addEventListener('click', () => {
+    firstPlayer.setAttribute('src','http://127.0.0.1:5500/images/MarioSSB.png');
+    console.log("the image has been changed");
 })
+
+
 
 const titleScreen = () => {
     const titleContainer = document.querySelector('.titleScreen');
     const startButton = document.querySelector('.start-button');
-    const leftProfile = document.querySelector('.left-profile');
     
     return {
         titleContainer,
