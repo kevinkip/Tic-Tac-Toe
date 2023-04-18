@@ -3,11 +3,19 @@
 const mario = document.querySelector('#mario');
 const leftProfile = document.querySelector('.left-profile');
 const firstPlayer = document.querySelector('.full-size-player')
+const characters = document.querySelectorAll('.character');
+console.log(characters);
 
-mario.addEventListener('click', () => {
-    firstPlayer.setAttribute('src','http://127.0.0.1:5500/images/MarioSSB.png');
-    console.log("the image has been changed");
+characters.forEach(item => {
+    item.addEventListener('click', () => {
+        console.log(item.id);
+        firstPlayer.setAttribute('src', `/images/full-size-character/${item.id}.png`)
+    })
 })
+// mario.addEventListener('click', () => {
+//     firstPlayer.setAttribute('src','/images/MarioSSB.png');
+//     console.log("the image has been changed");
+// })
 
 
 
