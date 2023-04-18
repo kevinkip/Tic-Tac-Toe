@@ -3,10 +3,11 @@
     src: url('./fonts/LilitaOne-Regular.ttf');
 }
 
-* {
+body{
     margin: 0;
     padding: 0;
     cursor: url('/images/cursor/player1.png'), auto;
+    /* document.body.style.cursor="help"; */
 }
 
 html{
@@ -42,13 +43,17 @@ html{
     display: flex;
     justify-content: center;
     align-items: center;
-    /* border: 1px solid black; */
     width: 50%;
     height: 30px;
     text-align: center;
     font-size: 2.5rem;
     font-family: 'Lilita one';
     height: 2.8rem;
+}
+
+.player1:hover,
+.player2:hover{
+    font-weight:normal;
 }
 
 .left-player, .right-player{

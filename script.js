@@ -2,16 +2,21 @@
 
 const mario = document.querySelector('#mario');
 const leftProfile = document.querySelector('.left-profile');
-const firstPlayer = document.querySelector('.full-size-player')
+const fullCharPic = document.querySelector('.full-size-player')
 const characters = document.querySelectorAll('.character');
 const characterCall = document.querySelector('#character-call');
 const titleSound = document.querySelector('#character-select-music');
+const body = document.body;
+const gameContainer = document.querySelector('.game-container');
 const titleScreen = document.querySelector('.titleScreen');
 const chooseBattlefield = document.querySelector('.choose-battlefield');
 const loadingScreen = document.querySelector('.loading-screen');
 const gameScreen = document.querySelector('.game-screen');
-const player1 = document.querySelector('.player1');
-const player2 = document.querySelector('.player2');
+const playerOneName = document.querySelector('.player1');
+const playerTwoName = document.querySelector('.player2');
+const playerOnePic = document.querySelector('.p1');
+const playerTwoPic = document.querySelector('.p2');
+
 
 
 console.log(characters);
@@ -35,27 +40,46 @@ window.addEventListener('load', () => {
     //turn off screens 1,2,4,5
 })
 
-player1.addEventListener('click', (e) => {
-    player1.value = ""; 
-    player1.style.width = (e.value.length + 1) + "px";
-    player1.addEventListener('keydown', (e) => {
+playerOneName.addEventListener('click', () => { 
+    body.style.cursor = 'url("/images/cursor/player1.png"), auto';
+    playerOneName.value = ""; 
+    playerOneName.addEventListener('keydown', (e) => {
         if(e.keyCode == 13){
-            const newName = player1.value;
+            const newName = playerOneName.value;
             console.log(newName);
-            player1.value = newName;
+            playerOneName.value = newName;
         }
     })
-    player1.addEventListener('keyup', (e) => {
+    playerOneName.addEventListener('keyup', (e) => {
         if (e.keyCode === 13) {
         e.target.blur();
         }
     }
     )
 })
+
+playerTwoName.addEventListener('click', () => {
+    body.style.cursor = 'url("/images/cursor/player2.png"), auto';
+    playerTwoName.value = "BOT";
+    playerTwoName.addEventListener('keydown', (e) => {
+        if(e.keyCode == 13){
+            const newName = playerTwoName.value;
+            console.log(newName);
+            playerTwoName.value = newName;
+        }
+    })
+    playerTwoName.addEventListener('keyup', (e) => {
+        if (e.keyCode === 13) {
+        e.target.blur();
+        }
+    }
+    )
+})
+
 const characterSelection = (item) => {
     characterCall.setAttribute('src', `/sound/${item}.wav`);
-    firstPlayer.setAttribute('src', `/images/full-size-character/${item}.png`);
-    player1.value = capFirstLet(item);
+    fullCharPic.setAttribute('src', `/images/full-size-character/${item}.png`);
+    playerOneName.value = capFirstLet(item);
     console.log(characterCall.volume);
     characterCall.play();
 }
