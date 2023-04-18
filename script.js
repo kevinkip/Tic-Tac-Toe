@@ -4,12 +4,47 @@ const mario = document.querySelector('#mario');
 const leftProfile = document.querySelector('.left-profile');
 const firstPlayer = document.querySelector('.full-size-player')
 const characters = document.querySelectorAll('.character');
+const characterCall = document.querySelector('#character-call');
+const titleSound = document.querySelector('#character-select-music');
+
 console.log(characters);
+
+window.addEventListener('load', () => {
+    titleSound.volume = 0.008;
+    titleSound.play();
+})
+const characterSelection = (item) => {
+    characterCall.setAttribute('src', `/sound/${item}.wav`);
+    firstPlayer.setAttribute('src', `/images/full-size-character/${item}.png`);
+    console.log(characterCall.volume);
+    characterCall.play();
+}
+
+const higherVol = () => {
+    characterCall.volume = 0.15;
+}
+
+const lowerVol = () => {
+    characterCall.volume = 0.010;
+}
 
 characters.forEach(item => {
     item.addEventListener('click', () => {
         console.log(item.id);
-        firstPlayer.setAttribute('src', `/images/full-size-character/${item.id}.png`)
+        const name = item.id;
+        switch(name){
+            case('bowser'):
+                higherVol();
+                characterSelection(name);
+                break;
+            case('saitama'):
+                higherVol();
+                characterSelection(name);
+                break;
+            default:
+                lowerVol();
+                characterSelection(name);
+        }
     })
 })
 // mario.addEventListener('click', () => {
