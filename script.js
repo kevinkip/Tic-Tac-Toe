@@ -9,6 +9,11 @@ const titleSound = document.querySelector('#character-select-music');
 
 console.log(characters);
 
+//to have multiple pages, add "display: none" to the parts that
+// you don't want to see. 
+
+//make the "display: block" to show it and the others to none.
+
 window.addEventListener('load', () => {
     titleSound.volume = 0.008;
     titleSound.play();
