@@ -6,6 +6,11 @@ const firstPlayer = document.querySelector('.full-size-player')
 const characters = document.querySelectorAll('.character');
 const characterCall = document.querySelector('#character-call');
 const titleSound = document.querySelector('#character-select-music');
+const titleScreen = document.querySelector('.titleScreen');
+const chooseBattlefield = document.querySelector('.choose-battlefield');
+const loadingScreen = document.querySelector('.loading-screen');
+const gameScreen = document.querySelector('.game-screen');
+
 
 console.log(characters);
 
@@ -14,9 +19,18 @@ console.log(characters);
 
 //make the "display: block" to show it and the others to none.
 
+const turnOffDisplay = (item) => {
+    item.style.display = 'none';
+}
+
 window.addEventListener('load', () => {
     titleSound.volume = 0.008;
     titleSound.play();
+    turnOffDisplay(titleScreen);
+    turnOffDisplay(chooseBattlefield);
+    turnOffDisplay(loadingScreen);
+    turnOffDisplay(gameScreen);
+    //turn off screens 1,2,4,5
 })
 const characterSelection = (item) => {
     characterCall.setAttribute('src', `/sound/${item}.wav`);
@@ -59,20 +73,19 @@ characters.forEach(item => {
 
 
 
-const titleScreen = () => {
-    const titleContainer = document.querySelector('.titleScreen');
-    const startButton = document.querySelector('.start-button');
+// const titleScreen = () => {
+//     const startButton = document.querySelector('.start-button');
     
-    return {
-        titleContainer,
-        startButton,
-        characters,
-        leftProfile
-    }
+//     return {
+//         titleContainer,
+//         startButton,
+//         characters,
+//         leftProfile
+//     }
 
-};
+// };
 
-console.log(titleScreen.element);
+// console.log(titleScreen.element);
 // Welcome Screen
 // Choose your character
 // Loading screen with fighters looking at each other
