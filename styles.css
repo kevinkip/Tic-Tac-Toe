@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Lilita One';
+    src: url('./fonts/LilitaOne-Regular.ttf');
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -20,33 +25,49 @@ html{
     display: flex;
     flex-flow: row;
     align-items: center;
-    padding: 10px;
-    width: 55%;
+    padding: 20px 10px;
 }
 
 .character-profile{
-    display: flex;
-    flex-flow: row;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(36px, 356px));
+    justify-content: center;
     align-items: center;
-    width: 40%;
-    padding-top: 30px;
+    column-gap: 15%;
+    width: 100%;
+    padding-top: 10px;
+}
+
+.player1, .player2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid black; */
+    width: 50%;
+    height: 30px;
+    text-align: center;
+    font-size: 2.5rem;
+    font-family: 'Lilita one';
+    height: 2.8rem;
 }
 
 .left-player, .right-player{
     display: flex;
+    flex-flow: column;
     justify-content: center;
+    align-items: center;
+    object-fit: contain;
     padding: 5px;
-    width: 40%;
+    gap: 30px;
 }
 
 .character-grid{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    grid-template-rows: repeat(auto-fill, minmax(120px, 1fr));
+    grid-template-columns: repeat(8, minmax(120px, 100px));
+    grid-template-rows: repeat(auto-fill, minmax(120px, 100px));
     justify-content: center;
     align-items: center;
-    gap: 0.25rem;
+    gap: 0.5rem;
     width: 100%;
 }
 
@@ -80,17 +101,23 @@ html{
 .full-size-player{
     display: flex;
     justify-content: center;
-    width: 100%;
-    height: 100%;
+    object-fit: contain;
+    height: 350px;
+    width: 350px;
 }
 
 .character:hover{
     transform: scale(1.1);
 }
-/* .character:hover .character-thumbnail,
-.character:focus .character-thumbnail {
-    transform: scale(1.1);
-} */
+
+.character-thumbnail:hover{
+    -webkit-border-radius: 5px rgba(255, 0, 0, 0.67);
+    -moz-border-radius: 5px rgba(255, 0, 0, 0.67);
+    border-radius: 5px rgba(255, 0, 0, 0.67);
+    -webkit-box-shadow: 0px 0px 30px 0px rgba(255, 0, 0, 0.67);
+    -moz-box-shadow:    0px 0px 30px 0px rgba(209, 230, 209, 0.67);
+    box-shadow:         0px 0px 30px 0px rgba(255, 38, 0, 0.67);
+}
 
 .charName{
     grid-row: 2/3;
@@ -117,4 +144,9 @@ footer{
     align-items: center;
     gap: 10px;
     bottom: 0; /* absolutely positioned at bottom of page */
+}
+
+footer > a {
+    cursor: url('/images/cursor/player1.png'), auto;
+
 }

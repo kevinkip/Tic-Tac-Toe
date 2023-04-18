@@ -10,6 +10,8 @@ const titleScreen = document.querySelector('.titleScreen');
 const chooseBattlefield = document.querySelector('.choose-battlefield');
 const loadingScreen = document.querySelector('.loading-screen');
 const gameScreen = document.querySelector('.game-screen');
+const player1 = document.querySelector('.player1');
+const player2 = document.querySelector('.player2');
 
 
 console.log(characters);
@@ -24,7 +26,7 @@ const turnOffDisplay = (item) => {
 }
 
 window.addEventListener('load', () => {
-    titleSound.volume = 0.008;
+    titleSound.volume = 0.006;
     titleSound.play();
     turnOffDisplay(titleScreen);
     turnOffDisplay(chooseBattlefield);
@@ -32,19 +34,46 @@ window.addEventListener('load', () => {
     turnOffDisplay(gameScreen);
     //turn off screens 1,2,4,5
 })
+
+player1.addEventListener('click', (e) => {
+    player1.value = ""; 
+    player1.style.width = (e.value.length + 1) + "px";
+    player1.addEventListener('keydown', (e) => {
+        if(e.keyCode == 13){
+            const newName = player1.value;
+            console.log(newName);
+            player1.value = newName;
+        }
+    })
+    player1.addEventListener('keyup', (e) => {
+        if (e.keyCode === 13) {
+        e.target.blur();
+        }
+    }
+    )
+})
 const characterSelection = (item) => {
     characterCall.setAttribute('src', `/sound/${item}.wav`);
     firstPlayer.setAttribute('src', `/images/full-size-character/${item}.png`);
+    player1.value = capFirstLet(item);
     console.log(characterCall.volume);
     characterCall.play();
 }
 
 const higherVol = () => {
-    characterCall.volume = 0.15;
+    characterCall.volume = 0.07;
+}
+
+const midVol = () => {
+    characterCall.volume = 0.05;
 }
 
 const lowerVol = () => {
-    characterCall.volume = 0.010;
+    characterCall.volume = 0.019;
+}
+
+const capFirstLet = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 characters.forEach(item => {
@@ -57,7 +86,11 @@ characters.forEach(item => {
                 characterSelection(name);
                 break;
             case('saitama'):
-                higherVol();
+                midVol();
+                characterSelection(name);
+                break;
+            case('jotaro'):
+                lowerVol();
                 characterSelection(name);
                 break;
             default:
