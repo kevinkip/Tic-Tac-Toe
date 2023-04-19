@@ -29,6 +29,11 @@ html{
     padding: 20px 10px;
 }
 
+.charSelTitle{
+    font-size: 3rem;
+    font-family: 'Lilita One';
+}
+
 .character-profile{
     display: grid;
     grid-template-columns: repeat(2, minmax(36px, 356px));
@@ -43,10 +48,10 @@ html{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50%;
+    width: 40%;
     height: 30px;
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-family: 'Lilita one';
     height: 2.8rem;
 }
@@ -107,8 +112,8 @@ html{
     display: flex;
     justify-content: center;
     object-fit: contain;
-    height: 350px;
-    width: 350px;
+    height: 300px;
+    width: 300px;
 }
 
 .character:hover{

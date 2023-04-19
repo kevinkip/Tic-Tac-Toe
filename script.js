@@ -13,8 +13,8 @@ const titleScreen = document.querySelector('.titleScreen');
 const chooseBattlefield = document.querySelector('.choose-battlefield');
 const loadingScreen = document.querySelector('.loading-screen');
 const gameScreen = document.querySelector('.game-screen');
-let playerOneName = document.querySelector('.player1');
-let playerTwoName = document.querySelector('.player2');
+const playerOneName = document.querySelector('.player1');
+const playerTwoName = document.querySelector('.player2');
 const playerOnePic = document.querySelector('.p1');
 const playerTwoPic = document.querySelector('.p2');
 
@@ -78,13 +78,13 @@ const characterScreen = (() => {
     const player1 = (name ) => {
         playerOnePic.setAttribute('src', `/images/full-size-character/${name}.png`);
         playerOneName.value = capFirstLet(name);
-        console.log(playerOneName);
+        console.log(playerOneName.value);
     }
 
     const player2 = (name) => {
         playerTwoPic.setAttribute('src', `/images/full-size-character/${name}.png`);
         playerTwoName.value = capFirstLet(name);
-        console.log(playerTwoName);
+        console.log(playerTwoName.value);
     }
 
     const imagePlacement = (item) => {
@@ -96,8 +96,8 @@ const characterScreen = (() => {
 
     playerOneName.addEventListener('click', () => { 
         playerNum = 1;
-        body.style.cursor = '/images/cursors/player1.png';
-        playerOneName.value = ""; 
+        body.style.cursor = `url('/images/cursor/player1.png'), auto`;
+        // playerOneName.value = ""; 
         playerOneName.addEventListener('keydown', (e) => {
             if(e.keyCode == 13){
                 const newName = playerOneName.value;
@@ -115,8 +115,8 @@ const characterScreen = (() => {
     
     playerTwoName.addEventListener('click', () => {
         playerNum = 2;
-        body.style.cursor = '/images/cursors/player2.png';
-        playerTwoName.value = "BOT";
+        body.style.cursor = `url('/images/cursor/player2.png'), auto`;
+        // playerTwoName.value = "BOT";
         playerTwoName.addEventListener('keydown', (e) => {
             if(e.keyCode == 13){
                 const newName = playerTwoName.value;
