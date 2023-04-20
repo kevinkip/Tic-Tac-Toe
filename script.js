@@ -23,49 +23,53 @@
 
 //IIFE Immediately Invoked Function Expression
 
-
-const mario = document.querySelector('#mario');
-const leftProfile = document.querySelector('.left-profile');
-const fullCharPic = document.querySelector('.full-size-player')
-const characters = document.querySelectorAll('.character');
-const characterCall = document.querySelector('#character-call');
-const titleSound = document.querySelector('#character-select-music');
-const body = document.body;
-console.log(body);
-const gameContainer = document.querySelector('.game-container');
-const titleScreen = document.querySelector('.titleScreen');
-const chooseBattlefield = document.querySelector('.choose-battlefield');
-const chooseCharacter = document.querySelector('.choose-character');
-const loadingScreen = document.querySelector('.loading-screen');
-const gameScreen = document.querySelector('.game-screen');
-const playerOneName = document.querySelector('.player1');
-const playerTwoName = document.querySelector('.player2');
-const playerOnePic = document.querySelector('.p1');
-const playerTwoPic = document.querySelector('.p2');
+const elements = (() => {
+    const mario = document.querySelector('#mario');
+    const leftProfile = document.querySelector('.left-profile');
+    const fullCharPic = document.querySelector('.full-size-player')
+    const characters = document.querySelectorAll('.character');
+    const characterCall = document.querySelector('#character-call');
+    const titleSound = document.querySelector('#character-select-music');
+    const body = document.body;
+    console.log(body);
+    const gameContainer = document.querySelector('.game-container');
+    const titleScreen = document.querySelector('.titleScreen');
+    const chooseBattlefield = document.querySelector('.choose-battlefield');
+    const chooseCharacter = document.querySelector('.choose-character');
+    const loadingScreen = document.querySelector('.loading-screen');
+    const gameScreen = document.querySelector('.game-screen');
+    const playerOneName = document.querySelector('.player1');
+    const playerTwoName = document.querySelector('.player2');
+    const playerOnePic = document.querySelector('.p1');
+    const playerTwoPic = document.querySelector('.p2');
 
 console.log(characters);
 
 //to have multiple pages, add "display: none" to the parts that
 // you don't want to see. 
 
-//make the "display: block" to show it and the others to none.
+//make the "display: block" to show it and the others to none.  
+return{
+    mario,
+    leftProfile,
+    fullCharPic,
+    characters,
+    characterCall,
+    titleSound,
+    body,
+    gameContainer,
+    titleScreen,
+    chooseBattlefield,
+    chooseCharacter,
+    loadingScreen,
+    gameScreen,
+    playerOneName,
+    playerOnePic,
+    playerTwoName,
+    playerTwoPic
+}  
+})();
 
-const turnOffDisplay = (item) => {
-    item.style.display = 'none';
-}
-
-const turnOnDisplay = (item) => {
-    item.style.display = 'block';
-}
-
-// window.addEventListener('load', () => {
-
-//     turnOffDisplay(titleScreen);
-//     turnOffDisplay(chooseBattlefield);
-//     turnOffDisplay(loadingScreen);
-//     turnOffDisplay(gameScreen);
-//     //turn off screens 1,2,4,5
-// })
 
 const displayControl = (() => {
     const turnOffDisplay = (screen) => {
@@ -82,16 +86,17 @@ const displayControl = (() => {
 })();
 
 const openingScreen = (() => {
-    displayControl.turnOnDisplay(titleScreen);
-    displayControl.turnOffDisplay(chooseCharacter);
-    displayControl.turnOffDisplay(chooseBattlefield);
-    displayControl.turnOffDisplay(loadingScreen);
-    displayControl.turnOffDisplay(gameScreen);
-    body.addEventListener('click', () => {
-        displayControl.turnOffDisplay(titleScreen);
-        displayControl.turnOnDisplay(chooseCharacter);
-        titleSound.volume = 0.006;
-        titleSound.play();
+    displayControl.turnOnDisplay(elements.titleScreen);
+    displayControl.turnOffDisplay(elements.chooseCharacter);
+    displayControl.turnOffDisplay(elements.chooseBattlefield);
+    displayControl.turnOffDisplay(elements.loadingScreen);
+    displayControl.turnOffDisplay(elements.gameScreen);
+    elements.body.addEventListener('click', () => {
+        displayControl.turnOffDisplay(elements.titleScreen);
+        displayControl.turnOnDisplay(elements.chooseCharacter);
+        elements.titleSound.volume = 0.006;
+        console.log(elements.titleSound);
+        elements.titleSound.play();
     })
 })();
 
@@ -101,15 +106,15 @@ const characterScreen = (() => {
     let currentName;
 
     const higherVol = () => {
-        characterCall.volume = 0.07;
+        elements.characterCall.volume = 0.07;
     }
     
     const midVol = () => {
-        characterCall.volume = 0.05;
+        elements.characterCall.volume = 0.05;
     }
     
     const lowerVol = () => {
-        characterCall.volume = 0.019;
+        elements.characterCall.volume = 0.019;
     }
     
     const capFirstLet = (string) => {
@@ -133,36 +138,36 @@ const characterScreen = (() => {
 
     const player1 = (name ) => {
         soundCall(name);
-        playerOnePic.setAttribute('src', `/images/full-size-character/${name}.png`);
-        playerOneName.value = capFirstLet(name);
-        console.log(playerOneName.value);
+        elements.playerOnePic.setAttribute('src', `/images/full-size-character/${name}.png`);
+        elements.playerOneName.value = capFirstLet(name);
+        console.log(elements.playerOneName.value);
     }
 
     const player2 = (name) => {
         soundCall(name);
-        playerTwoPic.setAttribute('src', `/images/full-size-character/${name}.png`);
-        playerTwoName.value = capFirstLet(name);
-        console.log(playerTwoName.value);
+        elements.playerTwoPic.setAttribute('src', `/images/full-size-character/${name}.png`);
+        elements.playerTwoName.value = capFirstLet(name);
+        console.log(elements.playerTwoName.value);
     }
 
     const soundCall = (item) => {
-        characterCall.setAttribute('src', `/sound/${item}.wav`);
-        console.log(characterCall.volume);
-        characterCall.play();
+        elements.characterCall.setAttribute('src', `/sound/${item}.wav`);
+        console.log(elements.characterCall.volume);
+        elements.characterCall.play();
     }
 
-    playerOneName.addEventListener('click', () => { 
+    elements.playerOneName.addEventListener('click', () => { 
         playerNum = 1;
-        body.style.cursor = `url('/images/cursor/player1.png'), auto`;
+        elements.body.style.cursor = `url('/images/cursor/player1.png'), auto`;
         // playerOneName.value = ""; 
-        playerOneName.addEventListener('keydown', (e) => {
+        elements.playerOneName.addEventListener('keydown', (e) => {
             if(e.keyCode == 13){
-                const newName = playerOneName.value;
+                const newName = elements.playerOneName.value;
                 console.log(newName);
-                playerOneName.value = newName;
+                elements.playerOneName.value = newName;
             }
         })
-        playerOneName.addEventListener('keyup', (e) => {
+        elements.playerOneName.addEventListener('keyup', (e) => {
             if (e.keyCode === 13) {
             e.target.blur();
             }
@@ -170,25 +175,25 @@ const characterScreen = (() => {
         )
     })
     
-    playerTwoName.addEventListener('click', () => {
+    elements.playerTwoName.addEventListener('click', () => {
         playerNum = 2;
-        body.style.cursor = `url('/images/cursor/player2.png'), auto`;
+        elements.body.style.cursor = `url('/images/cursor/player2.png'), auto`;
         // playerTwoName.value = "BOT";
-        playerTwoName.addEventListener('keydown', (e) => {
+        elements.playerTwoName.addEventListener('keydown', (e) => {
             if(e.keyCode == 13){
-                const newName = playerTwoName.value;
+                const newName = elements.playerTwoName.value;
                 console.log(newName);
-                playerTwoName.value = newName;
+                elements.playerTwoName.value = newName;
             }
         })
-        playerTwoName.addEventListener('keyup', (e) => {
+        elements.playerTwoName.addEventListener('keyup', (e) => {
             if (e.keyCode === 13) {
             e.target.blur();
             }
         }
         )
     })
-        characters.forEach(item => {
+    elements.characters.forEach(item => {
         item.addEventListener('click', () => {
             const name = item.id;
                 switch(name){
