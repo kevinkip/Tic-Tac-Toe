@@ -187,9 +187,5 @@ footer{
     align-items: center;
     gap: 10px;
     bottom: 0; /* absolutely positioned at bottom of page */
-}
-
-footer > a {
     cursor: url('/images/cursor/player1.png'), auto;
-
 }
