@@ -67,37 +67,29 @@ const turnOnDisplay = (item) => {
 //     //turn off screens 1,2,4,5
 // })
 
-// const displayControl = ((screen) => {
-//     let pages = [
-//         titleScreen,
-//         chooseBattlefield,
-//         chooseCharacter,
-//         loadingScreen,
-//         gameScreen
-//     ]
-//     switch(screen){
-//         case('screen-one'):
-//         break;
-//         case('screen-two'):
-//         break;
-//         case('screen-three'):
-//         break;
-//         case('screen-four'):
-//         break;
-//         case('screen-five'):
-//         break;
-//     }
-// })();
+const displayControl = (() => {
+    const turnOffDisplay = (screen) => {
+        screen.style.display = 'none';
+    }
+    
+    const turnOnDisplay = (screen) => {
+        screen.style.display = 'block';
+    }
+    return {
+        turnOffDisplay,
+        turnOnDisplay
+    }
+})();
 
 const openingScreen = (() => {
-    turnOnDisplay(titleScreen);
-    turnOffDisplay(chooseCharacter);
-    turnOffDisplay(chooseBattlefield);
-    turnOffDisplay(loadingScreen);
-    turnOffDisplay(gameScreen);
+    displayControl.turnOnDisplay(titleScreen);
+    displayControl.turnOffDisplay(chooseCharacter);
+    displayControl.turnOffDisplay(chooseBattlefield);
+    displayControl.turnOffDisplay(loadingScreen);
+    displayControl.turnOffDisplay(gameScreen);
     body.addEventListener('click', () => {
-        turnOffDisplay(titleScreen);
-        turnOnDisplay(chooseCharacter);
+        displayControl.turnOffDisplay(titleScreen);
+        displayControl.turnOnDisplay(chooseCharacter);
         titleSound.volume = 0.006;
         titleSound.play();
     })
