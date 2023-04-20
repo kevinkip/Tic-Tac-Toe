@@ -59,8 +59,7 @@ const turnOnDisplay = (item) => {
 }
 
 // window.addEventListener('load', () => {
-//     titleSound.volume = 0.006;
-//     titleSound.play();
+
 //     turnOffDisplay(titleScreen);
 //     turnOffDisplay(chooseBattlefield);
 //     turnOffDisplay(loadingScreen);
@@ -99,6 +98,8 @@ const openingScreen = (() => {
     body.addEventListener('click', () => {
         turnOffDisplay(titleScreen);
         turnOnDisplay(chooseCharacter);
+        titleSound.volume = 0.006;
+        titleSound.play();
     })
 })();
 
@@ -139,19 +140,20 @@ const characterScreen = (() => {
     }
 
     const player1 = (name ) => {
+        soundCall(name);
         playerOnePic.setAttribute('src', `/images/full-size-character/${name}.png`);
         playerOneName.value = capFirstLet(name);
         console.log(playerOneName.value);
     }
 
     const player2 = (name) => {
+        soundCall(name);
         playerTwoPic.setAttribute('src', `/images/full-size-character/${name}.png`);
         playerTwoName.value = capFirstLet(name);
         console.log(playerTwoName.value);
     }
 
-    const imagePlacement = (item) => {
-        imagePlacement(item);
+    const soundCall = (item) => {
         characterCall.setAttribute('src', `/sound/${item}.wav`);
         console.log(characterCall.volume);
         characterCall.play();
