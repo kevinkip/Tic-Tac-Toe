@@ -15,6 +15,21 @@ html{
     min-height: -webkit-fill-available;
 }
 
+h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.titleScreen{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
 .choose-character{
     display: flex;
     flex-flow: column;
@@ -36,12 +51,22 @@ html{
 
 .character-profile{
     display: grid;
-    grid-template-columns: repeat(2, minmax(36px, 356px));
+    grid-template-columns: repeat(3, minmax(36px, 356px));
     justify-content: center;
     align-items: center;
-    column-gap: 15%;
     width: 100%;
-    padding-top: 10px;
+    padding-top: 5px;
+}
+
+.player1:hover{
+    transform: scale(1.15);
+    cursor: url('/images/cursor/player1.png'), auto;
+}
+
+.player2:hover{
+    transform: scale(1.15);
+    cursor: url('/images/cursor/player2.png'), auto;
+  
 }
 
 .player1, .player2{
@@ -114,6 +139,13 @@ html{
     object-fit: contain;
     height: 300px;
     width: 300px;
+}
+
+.readyToFight{
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    height: 300px;
 }
 
 .character:hover{
