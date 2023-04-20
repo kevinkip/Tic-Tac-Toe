@@ -1,4 +1,28 @@
 "use strict";
+// console.log(titleScreen.element);
+// Welcome Screen
+// Choose your character
+// Loading screen with fighters looking at each other
+// Gameboard with fight sounds with each click.
+// Loser's profile picture flies out of the screen.
+// continue overlap screen with countdown
+
+// const gameBoard = (() => {
+//     let gameboard = [
+//         ['','',''],
+//         ['','',''],
+//         ['','',''],
+//     ] 
+
+//     // Leaving the gameboard blank squares blank so I can assign "X" and "O" with each click/player.
+//     return {gameboard};
+// })();
+
+
+// console.log(gameBoard);
+
+//IIFE Immediately Invoked Function Expression
+
 
 const mario = document.querySelector('#mario');
 const leftProfile = document.querySelector('.left-profile');
@@ -11,6 +35,7 @@ console.log(body);
 const gameContainer = document.querySelector('.game-container');
 const titleScreen = document.querySelector('.titleScreen');
 const chooseBattlefield = document.querySelector('.choose-battlefield');
+const chooseCharacter = document.querySelector('.choose-character');
 const loadingScreen = document.querySelector('.loading-screen');
 const gameScreen = document.querySelector('.game-screen');
 const playerOneName = document.querySelector('.player1');
@@ -29,15 +54,53 @@ const turnOffDisplay = (item) => {
     item.style.display = 'none';
 }
 
-window.addEventListener('load', () => {
-    titleSound.volume = 0.006;
-    titleSound.play();
-    turnOffDisplay(titleScreen);
+const turnOnDisplay = (item) => {
+    item.style.display = 'block';
+}
+
+// window.addEventListener('load', () => {
+//     titleSound.volume = 0.006;
+//     titleSound.play();
+//     turnOffDisplay(titleScreen);
+//     turnOffDisplay(chooseBattlefield);
+//     turnOffDisplay(loadingScreen);
+//     turnOffDisplay(gameScreen);
+//     //turn off screens 1,2,4,5
+// })
+
+// const displayControl = ((screen) => {
+//     let pages = [
+//         titleScreen,
+//         chooseBattlefield,
+//         chooseCharacter,
+//         loadingScreen,
+//         gameScreen
+//     ]
+//     switch(screen){
+//         case('screen-one'):
+//         break;
+//         case('screen-two'):
+//         break;
+//         case('screen-three'):
+//         break;
+//         case('screen-four'):
+//         break;
+//         case('screen-five'):
+//         break;
+//     }
+// })();
+
+const openingScreen = (() => {
+    turnOnDisplay(titleScreen);
+    turnOffDisplay(chooseCharacter);
     turnOffDisplay(chooseBattlefield);
     turnOffDisplay(loadingScreen);
     turnOffDisplay(gameScreen);
-    //turn off screens 1,2,4,5
-})
+    body.addEventListener('click', () => {
+        turnOffDisplay(titleScreen);
+        turnOnDisplay(chooseCharacter);
+    })
+})();
 
 const characterScreen = (() => {
     let playerNum = 1;
@@ -155,49 +218,3 @@ const characterScreen = (() => {
             }
         )    
 })();
-
-
-// mario.addEventListener('click', () => {
-//     firstPlayer.setAttribute('src','/images/MarioSSB.png');
-//     console.log("the image has been changed");
-// })
-
-
-
-// const titleScreen = () => {
-//     const startButton = document.querySelector('.start-button');
-    
-//     return {
-//         titleContainer,
-//         startButton,
-//         characters,
-//         leftProfile
-//     }
-
-// };
-
-// console.log(titleScreen.element);
-// Welcome Screen
-// Choose your character
-// Loading screen with fighters looking at each other
-// Gameboard with fight sounds with each click.
-// Loser's profile picture flies out of the screen.
-// continue overlap screen with countdown
-
-// const gameBoard = (() => {
-//     let gameboard = [
-//         ['','',''],
-//         ['','',''],
-//         ['','',''],
-//     ] 
-
-//     // Leaving the gameboard blank squares blank so I can assign "X" and "O" with each click/player.
-//     return {gameboard};
-// })();
-
-
-// console.log(gameBoard);
-
-//IIFE Immediately Invoked Function Expression
-
-
