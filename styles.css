@@ -1,6 +1,21 @@
 @font-face {
-    font-family: 'Lilita One';
+    font-family: 'Lilita';
     src: url('./fonts/LilitaOne-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Fira';
+    src: url('./fonts/FiraSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('./fonts/Poppins-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('./fonts/RobotoCondensed-Regular.ttf');
 }
 
 .screen-one::selection{background-color: salmon; color: white;}
@@ -40,13 +55,19 @@ h2{
 }
 
 .click-to-start{
-    font-size: 1.5rem;
+    font-size: 1.7rem;
+    font-weight: 700;
     padding: 1.1rem 3.5rem;
     border-radius: .75rem;
     transition: opacity .2s;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Poppins';
     margin-top: -1.3em;
     cursor: url('/images/cursor/player1.png'), auto;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;;
+}
+
+.click-to-start:hover{
+    transform: scale(1.05);
 }
 
 .screen-one{
