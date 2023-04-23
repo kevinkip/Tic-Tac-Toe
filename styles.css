@@ -1,21 +1,21 @@
 @font-face {
     font-family: 'Lilita';
-    src: url('./fonts/LilitaOne-Regular.ttf');
+    src: url('fonts/LilitaOne-Regular.ttf');
 }
 
 @font-face {
     font-family: 'Fira';
-    src: url('./fonts/FiraSans-Regular.ttf');
+    src: url('fonts/FiraSans-Regular.ttf');
 }
 
 @font-face {
     font-family: 'Poppins';
-    src: url('./fonts/Poppins-Regular.ttf');
+    src: url('fonts/Poppins-Regular.ttf');
 }
 
 @font-face {
     font-family: 'Roboto';
-    src: url('./fonts/RobotoCondensed-Regular.ttf');
+    src: url('fonts/RobotoCondensed-Regular.ttf');
 }
 
 .screen-one::selection{background-color: salmon; color: white;}
@@ -62,7 +62,7 @@ h2{
     transition: opacity .2s;
     font-family: 'Poppins';
     margin-top: -1.3em;
-    cursor: url('/images/cursor/player1.png'), auto;
+    cursor: url('images/cursor/player1.png'), auto;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;;
 }
 
@@ -147,12 +147,12 @@ h2{
 
 .player1:hover{
     transform: scale(1.15);
-    cursor: url('/images/cursor/player1.png'), auto;
+    cursor: url('images/cursor/player1.png'), auto;
 }
 
 .player2:hover{
     transform: scale(1.15);
-    cursor: url('/images/cursor/player2.png'), auto;
+    cursor: url('images/cursor/player2.png'), auto;
   
 }
 
@@ -292,7 +292,7 @@ footer{
     align-items: center;
     gap: 10px;
     bottom: 0; /* absolutely positioned at bottom of page */
-    cursor: url('/images/cursor/player1.png'), auto;
+    cursor: url('images/cursor/player1.png'), auto;
 }
 
 footer a{

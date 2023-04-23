@@ -103,7 +103,7 @@ const openingScreen = (() => {
     }
 
     elements.startBtn.addEventListener('click', () => {
-        elements.mainMusic.setAttribute('src', `/sound/game-start.wav`); 
+        elements.mainMusic.setAttribute('src', `sound/game-start.wav`); 
         elements.mainMusic.play();
         displayControl.turnOffDisplay(elements.titleScreen);
         displayControl.turnOnDisplay(elements.chooseCharacter);
@@ -151,27 +151,27 @@ const characterScreen = (() => {
 
     const player1 = (name ) => {
         soundCall(name);
-        elements.playerOnePic.setAttribute('src', `/images/full-size-character/${name}.png`);
+        elements.playerOnePic.setAttribute('src', `images/full-size-character/${name}.png`);
         elements.playerOneName.value = capFirstLet(name);
         console.log(elements.playerOneName.value);
     }
 
     const player2 = (name) => {
         soundCall(name);
-        elements.playerTwoPic.setAttribute('src', `/images/full-size-character/${name}.png`);
+        elements.playerTwoPic.setAttribute('src', `images/full-size-character/${name}.png`);
         elements.playerTwoName.value = capFirstLet(name);
         console.log(elements.playerTwoName.value);
     }
 
     const soundCall = (item) => {
-        elements.characterCall.setAttribute('src', `/sound/${item}.wav`);
+        elements.characterCall.setAttribute('src', `sound/${item}.wav`);
         console.log(elements.characterCall.volume);
         elements.characterCall.play();
     }
 
     elements.playerOneName.addEventListener('click', () => { 
         playerNum = 1;
-        elements.body.style.cursor = `url('/images/cursor/player1.png'), auto`;
+        elements.body.style.cursor = `url('images/cursor/player1.png'), auto`;
         // playerOneName.value = ""; 
         elements.playerOneName.addEventListener('keydown', (e) => {
             if(e.keyCode == 13){
@@ -190,7 +190,7 @@ const characterScreen = (() => {
     
     elements.playerTwoName.addEventListener('click', () => {
         playerNum = 2;
-        elements.body.style.cursor = `url('/images/cursor/player2.png'), auto`;
+        elements.body.style.cursor = `url('images/cursor/player2.png'), auto`;
         // playerTwoName.value = "BOT";
         elements.playerTwoName.addEventListener('keydown', (e) => {
             if(e.keyCode == 13){
