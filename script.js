@@ -30,6 +30,8 @@ const elements = (() => {
     const characters = document.querySelectorAll('.character');
     const characterCall = document.querySelector('#character-call');
     const titleSound = document.querySelector('#character-select-music');
+    const startBtn = document.querySelector('.click-to-start');
+    const mainMusic = document.querySelector('#start-music');
     const body = document.body;
     console.log(body);
     const gameContainer = document.querySelector('.game-container');
@@ -56,6 +58,8 @@ return{
     characters,
     characterCall,
     titleSound,
+    mainMusic,
+    startBtn,
     body,
     gameContainer,
     titleScreen,
@@ -77,7 +81,7 @@ const displayControl = (() => {
     }
     
     const turnOnDisplay = (screen) => {
-        screen.style.display = 'block';
+        screen.style.display = 'flex';
     }
     return {
         turnOffDisplay,
@@ -91,12 +95,21 @@ const openingScreen = (() => {
     displayControl.turnOffDisplay(elements.chooseBattlefield);
     displayControl.turnOffDisplay(elements.loadingScreen);
     displayControl.turnOffDisplay(elements.gameScreen);
-    elements.body.addEventListener('click', () => {
+    
+    const setDelay = () => {
+        setTimeout(() => {
+            elements.titleSound.play();
+        }, 8000);
+    }
+
+    elements.startBtn.addEventListener('click', () => {
+        elements.mainMusic.setAttribute('src', `/sound/game-start.wav`); 
+        elements.mainMusic.play();
         displayControl.turnOffDisplay(elements.titleScreen);
         displayControl.turnOnDisplay(elements.chooseCharacter);
         elements.titleSound.volume = 0.006;
-        console.log(elements.titleSound);
         elements.titleSound.play();
+        setDelay();
     })
 })();
 
@@ -216,4 +229,12 @@ const characterScreen = (() => {
                 })
             }
         )    
+})();
+
+const loadingScreen = (() => {
+
+})();
+
+const gameScreen = (() => {
+
 })();
