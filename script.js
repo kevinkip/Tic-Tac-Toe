@@ -96,19 +96,19 @@ const openingScreen = (() => {
     displayControl.turnOffDisplay(elements.loadingScreen);
     displayControl.turnOffDisplay(elements.gameScreen);
     
-    const setDelay = () => {
+    const setDelay = (() => {
         setTimeout(() => {
+            elements.titleSound.volume = 0.006;
             elements.titleSound.play();
-        }, 8000);
-    }
+        }, 1500);
+    })();
 
     elements.startBtn.addEventListener('click', () => {
         elements.mainMusic.setAttribute('src', `sound/game-start.wav`); 
+        elements.mainMusic.volume = 0.006;
         elements.mainMusic.play();
         displayControl.turnOffDisplay(elements.titleScreen);
         displayControl.turnOnDisplay(elements.chooseCharacter);
-        elements.titleSound.volume = 0.006;
-        elements.titleSound.play();
         setDelay();
     })
 })();
