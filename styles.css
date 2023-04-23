@@ -3,11 +3,29 @@
     src: url('./fonts/LilitaOne-Regular.ttf');
 }
 
+.screen-one::selection{background-color: salmon; color: white;}
+
+.parallax > use{
+  animation: move-forever 12s linear infinite;
+  &:nth-child(1){animation-delay:-2s}
+  &:nth-child(2){animation-delay:-2s; animation-duration:5s}
+  &:nth-child(3){animation-delay:-4s; animation-duration:3s}
+}
+
 body{
     margin: 0;
     padding: 0;
     cursor: url('/images/cursor/player1.png'), auto;
     /* document.body.style.cursor="help"; */
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    max-height: 100vh;
+}
+
+main{
+    display: flex;
+    justify-content: center;
 }
 
 html{
@@ -21,13 +39,57 @@ h2{
     align-items: center;
 }
 
-.titleScreen{
+.click-to-start{
+    font-size: 1.5rem;
+    padding: 1.1rem 3.5rem;
+    border-radius: .2rem;
+    transition: opacity .2s;
+}
+
+.screen-one{
     display: flex;
+    position: relative;
     flex-flow: column;
     justify-content: center;
     align-items: center;
     width: 100vw;
     height: 100vh;
+    background-color: #234;
+}
+
+.editorial {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 40em;
+    max-height: 100vh;
+    margin-top: 20rem;
+}
+
+.title{
+    display: flex;
+    z-index: 9;
+    justify-content: center;
+    align-items: center;
+    width: 60vw;
+    height: 200px;
+    padding-bottom: 100px;
+}
+
+.start-button{
+    display: flex;
+    flex-flow: column;
+    z-index: 9;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 20vh;
+}
+
+.start-button h1{
+    font-family: 'Lato', sans-serif;
+    margin-top: -1.3em;
+    color: #fff;
 }
 
 .choose-character{
@@ -144,9 +206,31 @@ h2{
 
 .readyToFight{
     display: flex;
+    flex-flow: column;
     justify-content: center;
     width: 300px;
     height: 300px;
+}
+
+.areYouReady > span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2.5rem;
+}
+
+.areYouReady{
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.play-button:hover{
+    border: solid black 0.5px;
+    box-shadow: 0.5px 0.5px 0.5px black;
+    margin:0px;
 }
 
 .character:hover{
@@ -174,12 +258,9 @@ h2{
     font-size: 19px;
 }
 
-.start-button{
-    color: aquamarine;
-}
-
 footer{
     position: fixed;
+    color: rgb(253, 253, 253);
     width: 100%;
     height: 30px;
     display: flex;
@@ -188,4 +269,20 @@ footer{
     gap: 10px;
     bottom: 0; /* absolutely positioned at bottom of page */
     cursor: url('/images/cursor/player1.png'), auto;
+}
+
+footer a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+
+@media (max-width:50em){
+    .content h1{font-size: 12vmax}
+    .editorial{height:90vw;}
+  }
+
+@keyframes move-forever{
+    0%{transform: translate(-90px , 0%)}
+    100%{transform: translate(85px , 0%)} 
 }
