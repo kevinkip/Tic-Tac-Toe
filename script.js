@@ -32,6 +32,7 @@ const elements = (() => {
     const titleSound = document.querySelector('#character-select-music');
     const startBtn = document.querySelector('.click-to-start');
     const mainMusic = document.querySelector('#start-music');
+    const selectCharacter = document.querySelector('#choose-your-character');
     const body = document.body;
     console.log(body);
     const gameContainer = document.querySelector('.game-container');
@@ -59,6 +60,7 @@ return{
     characterCall,
     titleSound,
     mainMusic,
+    selectCharacter,
     startBtn,
     body,
     gameContainer,
@@ -96,20 +98,24 @@ const openingScreen = (() => {
     displayControl.turnOffDisplay(elements.loadingScreen);
     displayControl.turnOffDisplay(elements.gameScreen);
     
-    const setDelay = () => {
+    const charSelMusic = () => {
         setTimeout(() => {
             elements.titleSound.volume = 0.006;
             elements.titleSound.play();
         }, 100);
+        setTimeout(() => {
+            elements.selectCharacter.volume = 0.015;
+            elements.selectCharacter.play();
+        }, 1150);
     };
 
     elements.startBtn.addEventListener('click', () => {
         elements.mainMusic.setAttribute('src', `sound/game-start.wav`); 
-        elements.mainMusic.volume = 0.006;
+        elements.mainMusic.volume = 0.009;
         elements.mainMusic.play();
         displayControl.turnOffDisplay(elements.titleScreen);
         displayControl.turnOnDisplay(elements.chooseCharacter);
-        setDelay();
+        charSelMusic();
     })
 })();
 
@@ -119,7 +125,7 @@ const characterScreen = (() => {
     let currentName;
 
     const higherVol = () => {
-        elements.characterCall.volume = 0.07;
+        elements.characterCall.volume = 0.09;
     }
     
     const midVol = () => {
