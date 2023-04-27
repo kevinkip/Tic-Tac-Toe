@@ -128,6 +128,16 @@ const characterScreen = (() => {
     let playerNum = 1;
     let currentPlayer;
     let currentName;
+    let count = 0;
+    let letsGo = document.querySelector('.areYouReady');
+
+    const gameStart = (num) => {
+        if(num == 2){
+            letsGo.style.display = 'flex';
+        } else if (num < 2) {
+            letsGo.style.display = 'none';
+        }
+    }
 
     const higherVol = () => {
         elements.characterCall.volume = 0.09;
@@ -165,7 +175,9 @@ const characterScreen = (() => {
         elements.playerOnePic.setAttribute('src', `images/full-size-character/${name}.png`);
         elements.playerOneName.value = capFirstLet(name);
         console.log(elements.playerOneName.value);
-        startBattle();
+        count++;
+        console.log(count);
+        gameStart(count);
     }
 
     const player2 = (name) => {
@@ -173,7 +185,9 @@ const characterScreen = (() => {
         elements.playerTwoPic.setAttribute('src', `images/full-size-character/${name}.png`);
         elements.playerTwoName.value = capFirstLet(name);
         console.log(elements.playerTwoName.value);
-        startBattle();
+        count++;
+        console.log(count);
+        gameStart(count);
     }
 
     const soundCall = (item) => {
@@ -201,15 +215,6 @@ const characterScreen = (() => {
         )
     })
 
-    const startBattle = () => {
-        let letsGo = document.querySelector('.areYouReady');
-        if(elements.playerOnePic.attributes['src'].value == "images/mystery.gif" || elements.playerTwoPic.attributes['src'].value == "images/mystery.gif") {
-            letsGo.style.display = 'none';
-        } else if(elements.playerOnePic.attributes['src'].value != "images/mystery.gif" || elements.playerTwoPic.attributes['src'].value == "images/mystery.gif") {
-            letsGo.style.display = 'flex';
-        }
-    }
-    
     elements.playerTwoName.addEventListener('click', () => {
         playerNum = 2;
         elements.body.style.cursor = `url('images/cursor/player2.png'), auto`;
