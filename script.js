@@ -43,8 +43,11 @@ const elements = (() => {
     const gameScreen = document.querySelector('.game-screen');
     const playerOneName = document.querySelector('.player1');
     const playerTwoName = document.querySelector('.player2');
-    const playerOnePic = document.querySelector('.p1');
-    const playerTwoPic = document.querySelector('.p2');
+    const playerOnePic = document.querySelector('#p1');
+    const playerTwoPic = document.querySelector('#p2');
+    const p1Button = document.querySelector('.p1Btn');
+    const p2Button = document.querySelector('.p2Btn');
+
 
 console.log(characters);
 
@@ -72,7 +75,9 @@ return{
     playerOneName,
     playerOnePic,
     playerTwoName,
-    playerTwoPic
+    playerTwoPic,
+    p1Button,
+    p2Button
 }  
 })();
 
@@ -155,11 +160,12 @@ const characterScreen = (() => {
         }
     }
 
-    const player1 = (name ) => {
+    const player1 = (name) => {
         soundCall(name);
         elements.playerOnePic.setAttribute('src', `images/full-size-character/${name}.png`);
         elements.playerOneName.value = capFirstLet(name);
         console.log(elements.playerOneName.value);
+        startBattle();
     }
 
     const player2 = (name) => {
@@ -167,6 +173,7 @@ const characterScreen = (() => {
         elements.playerTwoPic.setAttribute('src', `images/full-size-character/${name}.png`);
         elements.playerTwoName.value = capFirstLet(name);
         console.log(elements.playerTwoName.value);
+        startBattle();
     }
 
     const soundCall = (item) => {
@@ -193,6 +200,15 @@ const characterScreen = (() => {
         }
         )
     })
+
+    const startBattle = () => {
+        let letsGo = document.querySelector('.areYouReady');
+        if(elements.playerOnePic.attributes['src'].value == "images/mystery.gif" || elements.playerTwoPic.attributes['src'].value == "images/mystery.gif") {
+            letsGo.style.display = 'none';
+        } else if(elements.playerOnePic.attributes['src'].value != "images/mystery.gif" || elements.playerTwoPic.attributes['src'].value == "images/mystery.gif") {
+            letsGo.style.display = 'flex';
+        }
+    }
     
     elements.playerTwoName.addEventListener('click', () => {
         playerNum = 2;
@@ -212,6 +228,19 @@ const characterScreen = (() => {
         }
         )
     })
+
+    elements.p2Button.addEventListener('click', () => {
+        let text = elements.playerTwoName;
+        let t = elements.p2Button;
+        if(t.innerHTML == 'BOT'){
+            t.innerHTML = "Player 2"
+        } else{
+            t.innerHTML = 'BOT'
+            text.innerHTML = 'BOT';
+
+        }
+    })
+
     elements.characters.forEach(item => {
         item.addEventListener('click', () => {
             const name = item.id;
@@ -234,7 +263,7 @@ const characterScreen = (() => {
                         }
                 })
             }
-        )    
+        )
 })();
 
 const loadingScreen = (() => {
