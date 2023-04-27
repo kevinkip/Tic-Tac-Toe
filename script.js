@@ -126,18 +126,7 @@ const openingScreen = (() => {
 
 const characterScreen = (() => {
     let playerNum = 1;
-    let currentPlayer;
-    let currentName;
-    let count = 0;
-    let letsGo = document.querySelector('.areYouReady');
-
-    const gameStart = (num) => {
-        if(num == 2){
-            letsGo.style.display = 'flex';
-        } else if (num < 2) {
-            letsGo.style.display = 'none';
-        }
-    }
+    const startButton = document.querySelector('.button');
 
     const higherVol = () => {
         elements.characterCall.volume = 0.09;
@@ -165,9 +154,6 @@ const characterScreen = (() => {
         } else if (char == 2){
             player2(name);
         }
-        return {
-            currentPlayer, currentName
-        }
     }
 
     const player1 = (name) => {
@@ -175,9 +161,6 @@ const characterScreen = (() => {
         elements.playerOnePic.setAttribute('src', `images/full-size-character/${name}.png`);
         elements.playerOneName.value = capFirstLet(name);
         console.log(elements.playerOneName.value);
-        count++;
-        console.log(count);
-        gameStart(count);
     }
 
     const player2 = (name) => {
@@ -185,9 +168,7 @@ const characterScreen = (() => {
         elements.playerTwoPic.setAttribute('src', `images/full-size-character/${name}.png`);
         elements.playerTwoName.value = capFirstLet(name);
         console.log(elements.playerTwoName.value);
-        count++;
-        console.log(count);
-        gameStart(count);
+        // gameStart(elements.playerTwoName)
     }
 
     const soundCall = (item) => {
@@ -235,7 +216,6 @@ const characterScreen = (() => {
     })
 
     elements.p2Button.addEventListener('click', () => {
-        let text = elements.playerTwoName;
         let t = elements.p2Button;
         if(t.innerHTML == 'BOT'){
             t.innerHTML = "Player 2"
@@ -269,6 +249,14 @@ const characterScreen = (() => {
                 })
             }
         )
+
+    startButton.addEventListener('click', () => {
+        displayControl.turnOffDisplay(elements.chooseCharacter);
+        displayControl.turnOnDisplay(elements.loadingScreen);
+    })
+        return {
+            // gameStart,
+        }
 })();
 
 const loadingScreen = (() => {
