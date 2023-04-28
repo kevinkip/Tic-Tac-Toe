@@ -1,25 +1,11 @@
 "use strict";
-// console.log(titleScreen.element);
+
 // Welcome Screen
 // Choose your character
 // Loading screen with fighters looking at each other
 // Gameboard with fight sounds with each click.
 // Loser's profile picture flies out of the screen.
 // continue overlap screen with countdown
-
-// const gameBoard = (() => {
-//     let gameboard = [
-//         ['','',''],
-//         ['','',''],
-//         ['','',''],
-//     ] 
-
-//     // Leaving the gameboard blank squares blank so I can assign "X" and "O" with each click/player.
-//     return {gameboard};
-// })();
-
-
-// console.log(gameBoard);
 
 //IIFE Immediately Invoked Function Expression
 
@@ -97,6 +83,7 @@ const displayControl = (() => {
 })();
 
 const openingScreen = (() => {
+    //turning off specific screens
     displayControl.turnOnDisplay(elements.titleScreen);
     displayControl.turnOffDisplay(elements.chooseCharacter);
     displayControl.turnOffDisplay(elements.chooseBattlefield);
@@ -114,6 +101,8 @@ const openingScreen = (() => {
         }, 1150);
     };
 
+    //when the player clicks the start button, turn off everything,
+    //except characterScreen. 
     elements.startBtn.addEventListener('click', () => {
         elements.mainMusic.setAttribute('src', `sound/game-start.wav`); 
         elements.mainMusic.volume = 0.099;
@@ -125,13 +114,15 @@ const openingScreen = (() => {
 })();
 
 const characterScreen = (() => {
+    // start game button not present until characters are chosen.
     const startButton = document.querySelector('.button');
     const capFirstLet = (string) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
-
+    // keeping tabs on which player is active.
     let activePlayer = 0;
 
+    // player one turn to choose
     elements.playerOneName.addEventListener('click', () => { 
         console.log('Player One is active');
         activePlayer = 1;
@@ -139,6 +130,7 @@ const characterScreen = (() => {
         elements.body.style.cursor = `url('images/cursor/player1.png'), auto`;
     })
 
+    // decide which character profile is changed
     elements.characters.forEach(item => {
         item.addEventListener('click', () => {
             const name = item.id;
@@ -155,6 +147,7 @@ const characterScreen = (() => {
         })
     })
 
+    // player two to choose.
     elements.playerTwoName.addEventListener('click', () => {
         console.log('Player Two is active');
         activePlayer = 2;
@@ -162,6 +155,7 @@ const characterScreen = (() => {
         elements.body.style.cursor = `url('images/cursor/player2.png'), auto`;       
     })
 
+    // change between Bot and human 2nd player
     elements.p2Button.addEventListener('click', () => {
         let t = elements.p2Button;
         if(t.innerHTML == 'BOT'){
@@ -173,6 +167,7 @@ const characterScreen = (() => {
         }
     })
 
+    // audio control for character announcement. 
     const charCall = (name) => {
         elements.characterCall.setAttribute('src', `sound/${name}.wav`);
         elements.characterCall.volume = 0.1;
