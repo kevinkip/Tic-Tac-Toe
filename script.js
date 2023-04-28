@@ -20,7 +20,6 @@ const elements = (() => {
     const mainMusic = document.querySelector('#start-music');
     const selectCharacter = document.querySelector('#choose-your-character');
     const body = document.body;
-    console.log(body);
     const gameContainer = document.querySelector('.game-container');
     const titleScreen = document.querySelector('.titleScreen');
     const chooseBattlefield = document.querySelector('.choose-battlefield');
@@ -174,16 +173,35 @@ const characterScreen = (() => {
         elements.characterCall.play();
     }
 
+    const timeOut = () => {
+        const loadScreenWav = document.querySelector('#loading');
+        const dots = document.querySelector('.loader');
+
+        setTimeout(() => {
+            loadScreenWav.volume = 0.5;
+            loadScreenWav.play();
+        }, 2000);
+
+        setTimeout(() => {
+            dots.style.display = 'none'
+        }, 1500);
+
+    }
+
     startButton.addEventListener('click', () => {
+
         displayControl.turnOffDisplay(elements.chooseCharacter);
         displayControl.turnOnDisplay(elements.loadingScreen);
         elements.titleSound.pause();
+        timeOut();
 
     })
 
 })();
 
 const loadingScreen = (() => {
+
+
 
 })();
 
