@@ -113,6 +113,11 @@ const openingScreen = (() => {
 })();
 
 const characterScreen = (() => {
+    let player1Name;
+    let player2Name;
+    let player1Pic;
+    let player2Pic;
+
     // start game button not present until characters are chosen.
     const startButton = document.querySelector('.button');
     const capFirstLet = (string) => {
@@ -137,11 +142,15 @@ const characterScreen = (() => {
             if (activePlayer === 1){
                 elements.playerOnePic.setAttribute('src', `images/full-size-character/${name}.png`);
                 elements.playerOneName.value = capFirstLet(name);
-                console.log(elements.playerOneName.value);     
+                console.log(elements.playerOneName.value);
+                player1Pic = elements.playerOnePic.src;
+                player1Name = elements.playerOneName.value;     
             } else if (activePlayer === 2){
                 elements.playerTwoPic.setAttribute('src', `images/full-size-character/${name}.png`);
                 elements.playerTwoName.value = capFirstLet(name);
                 console.log(elements.playerTwoName.value);
+                player2Pic = elements.playerTwoPic.src;
+                player2Name = elements.playerTwoName.value;
             }
         })
     })
@@ -194,15 +203,24 @@ const characterScreen = (() => {
         displayControl.turnOnDisplay(elements.loadingScreen);
         elements.titleSound.pause();
         timeOut();
+        const playerOne = document.querySelector('.imgP1');
+        const playerTwo = document.querySelector('.imgP2');
+        
+        playerOne.setAttribute('src', `${player1Pic}`);
+        playerTwo.setAttribute('src', `${player2Pic}`);
 
     })
+
+    return {
+        player1Name,
+        player2Name,
+        player1Pic,
+        player2Pic
+    }
 
 })();
 
 const loadingScreen = (() => {
-
-
-
 })();
 
 const gameScreen = (() => {
