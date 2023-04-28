@@ -109,14 +109,14 @@ const openingScreen = (() => {
             elements.titleSound.play();
         }, 100);
         setTimeout(() => {
-            elements.selectCharacter.volume = 0.015;
+            elements.selectCharacter.volume = 0.02;
             elements.selectCharacter.play();
         }, 1150);
     };
 
     elements.startBtn.addEventListener('click', () => {
         elements.mainMusic.setAttribute('src', `sound/game-start.wav`); 
-        elements.mainMusic.volume = 0.009;
+        elements.mainMusic.volume = 0.099;
         elements.mainMusic.play();
         displayControl.turnOffDisplay(elements.titleScreen);
         displayControl.turnOnDisplay(elements.chooseCharacter);
@@ -125,94 +125,41 @@ const openingScreen = (() => {
 })();
 
 const characterScreen = (() => {
-    let playerNum = 1;
     const startButton = document.querySelector('.button');
-
-    const higherVol = () => {
-        elements.characterCall.volume = 0.09;
-    }
-    
-    const midVol = () => {
-        elements.characterCall.volume = 0.05;
-    }
-    
-    const lowerVol = () => {
-        elements.characterCall.volume = 0.019;
-    }
-    
     const capFirstLet = (string) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
-    const characterSelection = (name) => {
-        toggleChar(name, playerNum);
-    }
-
-    const toggleChar = (name, char) => {
-        if(char == 1){
-            player1(name);
-        } else if (char == 2){
-            player2(name);
-        }
-    }
-
-    const player1 = (name) => {
-        soundCall(name);
-        elements.playerOnePic.setAttribute('src', `images/full-size-character/${name}.png`);
-        elements.playerOneName.value = capFirstLet(name);
-        console.log(elements.playerOneName.value);
-    }
-
-    const player2 = (name) => {
-        soundCall(name);
-        elements.playerTwoPic.setAttribute('src', `images/full-size-character/${name}.png`);
-        elements.playerTwoName.value = capFirstLet(name);
-        console.log(elements.playerTwoName.value);
-        // gameStart(elements.playerTwoName)
-    }
-
-    const soundCall = (item) => {
-        elements.characterCall.setAttribute('src', `sound/${item}.wav`);
-        console.log(elements.characterCall.volume);
-        elements.characterCall.play();
-    }
+    let activePlayer = 0;
 
     elements.playerOneName.addEventListener('click', () => { 
-        playerNum = 1;
+        console.log('Player One is active');
+        activePlayer = 1;
+        console.log(activePlayer)
         elements.body.style.cursor = `url('images/cursor/player1.png'), auto`;
-        // playerOneName.value = ""; 
-        elements.playerOneName.addEventListener('keydown', (e) => {
-            if(e.keyCode == 13){
-                const newName = elements.playerOneName.value;
-                console.log(newName);
-                elements.playerOneName.value = newName;
+    })
+
+    elements.characters.forEach(item => {
+        item.addEventListener('click', () => {
+            const name = item.id;
+            charCall(name);
+            if (activePlayer === 1){
+                elements.playerOnePic.setAttribute('src', `images/full-size-character/${name}.png`);
+                elements.playerOneName.value = capFirstLet(name);
+                console.log(elements.playerOneName.value);     
+            } else if (activePlayer === 2){
+                elements.playerTwoPic.setAttribute('src', `images/full-size-character/${name}.png`);
+                elements.playerTwoName.value = capFirstLet(name);
+                console.log(elements.playerTwoName.value);
             }
         })
-        elements.playerOneName.addEventListener('keyup', (e) => {
-            if (e.keyCode === 13) {
-            e.target.blur();
-            }
-        }
-        )
     })
 
     elements.playerTwoName.addEventListener('click', () => {
-        playerNum = 2;
-        elements.body.style.cursor = `url('images/cursor/player2.png'), auto`;
-        // playerTwoName.value = "BOT";
-        elements.playerTwoName.addEventListener('keydown', (e) => {
-            if(e.keyCode == 13){
-                const newName = elements.playerTwoName.value;
-                console.log(newName);
-                elements.playerTwoName.value = newName;
-            }
-        })
-        elements.playerTwoName.addEventListener('keyup', (e) => {
-            if (e.keyCode === 13) {
-            e.target.blur();
-            }
-        }
-        )
+        console.log('Player Two is active');
+        activePlayer = 2;
+        console.log(activePlayer)
+        elements.body.style.cursor = `url('images/cursor/player2.png'), auto`;       
     })
 
     elements.p2Button.addEventListener('click', () => {
@@ -226,37 +173,17 @@ const characterScreen = (() => {
         }
     })
 
-    elements.characters.forEach(item => {
-        item.addEventListener('click', () => {
-            const name = item.id;
-                switch(name){
-                    case('bowser'):
-                        higherVol();
-                        characterSelection(name);
-                        break;
-                    case('saitama'):
-                        midVol();
-                        characterSelection(name);
-                        break;
-                    case('jotaro'):
-                        lowerVol();
-                        characterSelection(name);
-                        break;
-                    default:
-                        lowerVol();
-                        characterSelection(name);
-                        }
-                })
-            }
-        )
+    const charCall = (name) => {
+        elements.characterCall.setAttribute('src', `sound/${name}.wav`);
+        elements.characterCall.volume = 0.1;
+        elements.characterCall.play();
+    }
 
     startButton.addEventListener('click', () => {
         displayControl.turnOffDisplay(elements.chooseCharacter);
         displayControl.turnOnDisplay(elements.loadingScreen);
     })
-        return {
-            // gameStart,
-        }
+
 })();
 
 const loadingScreen = (() => {
