@@ -503,6 +503,8 @@ animation: preloader .6s ease-in-out alternate .4s infinite;
     height: 100vh;
     background-image: url('images/versus-background.png');
     background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
 }
 
 .playerOne{

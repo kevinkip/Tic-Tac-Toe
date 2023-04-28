@@ -91,7 +91,7 @@ const openingScreen = (() => {
     
     const charSelMusic = () => {
         setTimeout(() => {
-            elements.titleSound.volume = 0.2;
+            elements.titleSound.volume = 0.6;
             elements.titleSound.play();
         }, 1000);
         setTimeout(() => {
@@ -197,12 +197,22 @@ const characterScreen = (() => {
 
     }
 
+    const fading = () => {
+        if(elements.titleSound.volume > 0){
+            elements.titleSound.volume -= 0.06;
+            setTimeout(fading, 200);
+        } else {
+            elements.titleSound.pause();
+        }
+    }
+
     startButton.addEventListener('click', () => {
 
         displayControl.turnOffDisplay(elements.chooseCharacter);
         displayControl.turnOnDisplay(elements.loadingScreen);
-        elements.titleSound.pause();
+        // elements.titleSound.pause();
         timeOut();
+        fading();
         const playerOne = document.querySelector('.imgP1');
         const playerTwo = document.querySelector('.imgP2');
         
