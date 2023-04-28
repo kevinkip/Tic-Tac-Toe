@@ -92,11 +92,11 @@ const openingScreen = (() => {
     
     const charSelMusic = () => {
         setTimeout(() => {
-            elements.titleSound.volume = 0.006;
+            elements.titleSound.volume = 0.2;
             elements.titleSound.play();
-        }, 100);
+        }, 1000);
         setTimeout(() => {
-            elements.selectCharacter.volume = 0.02;
+            elements.selectCharacter.volume = 0.5;
             elements.selectCharacter.play();
         }, 1150);
     };
@@ -105,7 +105,7 @@ const openingScreen = (() => {
     //except characterScreen. 
     elements.startBtn.addEventListener('click', () => {
         elements.mainMusic.setAttribute('src', `sound/game-start.wav`); 
-        elements.mainMusic.volume = 0.099;
+        elements.mainMusic.volume = 1;
         elements.mainMusic.play();
         displayControl.turnOffDisplay(elements.titleScreen);
         displayControl.turnOnDisplay(elements.chooseCharacter);
@@ -170,13 +170,15 @@ const characterScreen = (() => {
     // audio control for character announcement. 
     const charCall = (name) => {
         elements.characterCall.setAttribute('src', `sound/${name}.wav`);
-        elements.characterCall.volume = 0.1;
+        elements.characterCall.volume = 0.9;
         elements.characterCall.play();
     }
 
     startButton.addEventListener('click', () => {
         displayControl.turnOffDisplay(elements.chooseCharacter);
         displayControl.turnOnDisplay(elements.loadingScreen);
+        elements.titleSound.pause();
+
     })
 
 })();
