@@ -189,11 +189,11 @@ const characterScreen = (() => {
         setTimeout(() => {
             loadScreenWav.volume = 0.5;
             loadScreenWav.play();
-        }, 2000);
+        }, 2400);
 
         setTimeout(() => {
             dots.style.display = 'none'
-        }, 1500);
+        }, 2900);
 
     }
 
@@ -215,9 +215,15 @@ const characterScreen = (() => {
         fading();
         const playerOne = document.querySelector('.imgP1');
         const playerTwo = document.querySelector('.imgP2');
+
+        const playerOneCharName = document.querySelector('.nameP1');
+        const playerTwoCharName = document.querySelector('.nameP2')
         
         playerOne.setAttribute('src', `${player1Pic}`);
         playerTwo.setAttribute('src', `${player2Pic}`);
+
+        playerOneCharName.innerHTML = player1Name;
+        playerTwoCharName.innerHTML = player2Name;
 
     })
 

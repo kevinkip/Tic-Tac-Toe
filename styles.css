@@ -513,6 +513,12 @@ animation: preloader .6s ease-in-out alternate .4s infinite;
     justify-content: flex-end;
     align-items: center;
     padding: 3rem;
+    /*start x position as -50px*/
+    animation: leftToRight 3s ease-in-out;
+    animation-delay: 2s;
+    transition: all 2s ease-in-out;
+    transition-delay: 2s;
+    gap: 5px;
 }
 
 .playerTwo{
@@ -521,7 +527,23 @@ animation: preloader .6s ease-in-out alternate .4s infinite;
     justify-content: flex-start;
     align-items: center;
     padding: 3rem;
+    animation: rightToLeft 3s ease-in-out;
+    animation-delay: 2s;
+    transition: all 2s ease-in-out;
+    transition-delay: 2s;
+    gap: 5px;
+}
 
+.loading-wrapper{
+    display: flex;
+    flex-flow: column;
+    max-width: 600px;
+    max-height: 600px;
+    min-width: 30px;
+    min-height: 30px;
+    justify-content: space-around;
+    align-items: center;
+    gap: 50px;
 }
 
 .data-img{
@@ -532,6 +554,19 @@ animation: preloader .6s ease-in-out alternate .4s infinite;
     min-height: 30px;
     justify-content: center;
     align-items: center;
+}
+
+.data-name{
+    display: flex;
+    max-width: 400px;
+    max-height: 50px;
+    min-width: 40px;
+    min-height: 20px;
+    justify-content: center;
+    align-items: center;
+    font-size: 70px;
+    color: white;
+    font-weight: 800;
 }
 
 footer{
@@ -566,3 +601,13 @@ footer a{
 @keyframes preloader {
     100% { transform: scale(2); }
   }
+
+@keyframes leftToRight {
+    0% {transform: translate3d(-50px, 0, 0);}
+    100% {transform: translate3d(0,0,0);}
+}
+
+@keyframes rightToLeft {
+    0% {transform: translate3d(+50px, 0, 0);}
+    100% {transform: translate3d(0,0,0);}
+}
