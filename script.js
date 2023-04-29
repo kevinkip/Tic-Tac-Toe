@@ -206,6 +206,14 @@ const characterScreen = (() => {
         }
     }
 
+    const openGame = () => {
+        setTimeout(() => {
+            const countToStart = document.querySelector('.count-to-start');
+            displayControl.turnOffDisplay(elements.loadingScreen);
+            displayControl.turnOnDisplay(elements.gameScreen);
+            countToStart.play();
+        }, 7000);
+    }
     startButton.addEventListener('click', () => {
 
         displayControl.turnOffDisplay(elements.chooseCharacter);
@@ -224,6 +232,8 @@ const characterScreen = (() => {
 
         playerOneCharName.innerHTML = player1Name;
         playerTwoCharName.innerHTML = player2Name;
+
+        openGame();
 
     })
 
