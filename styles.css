@@ -569,6 +569,35 @@ animation: preloader .6s ease-in-out alternate .4s infinite;
     font-weight: 800;
 }
 
+.game-screen{
+    width: 100vw;
+    height: 100vh;
+}
+
+.gameBoard{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    width: 600px;
+    height: 600px;
+    border: 2px solid black;
+    border-radius: 3px;
+    margin: 50px auto;
+}
+
+.cell{
+    display: flex;
+    border: 1px solid black;
+}
+
+.cell:hover{
+    /* -webkit-border-radius: 5px rgba(103, 211, 41, 0.67);
+    -moz-border-radius: 5px rgba(53, 163, 59, 0.67);
+    border-radius: 5px rgba(64, 155, 79, 0.67); */
+    -webkit-box-shadow: 0px 0px 30px 0px rgba(41, 167, 41, 0.67);
+    -moz-box-shadow:    0px 0px 30px 0px rgba(209, 230, 209, 0.67);
+    box-shadow:         0px 0px 30px 0px rgba(32, 29, 165, 0.67); 
+}
+
 footer{
     text-decoration: none;
     position: fixed;

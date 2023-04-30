@@ -26,6 +26,7 @@ const elements = (() => {
     const chooseCharacter = document.querySelector('.choose-character');
     const loadingScreen = document.querySelector('.loading-screen');
     const gameScreen = document.querySelector('.game-screen');
+    const gameBoard = document.querySelector('.gameBoard');
     const playerOneName = document.querySelector('.player1');
     const playerTwoName = document.querySelector('.player2');
     const playerOnePic = document.querySelector('#p1');
@@ -206,12 +207,20 @@ const characterScreen = (() => {
         }
     }
 
+    const delayGame = () => {
+        setTimeout(() => {
+            status('on');
+            // console.log('The game is now live!');
+        }, 3000);
+    }
+
     const openGame = () => {
         setTimeout(() => {
             const countToStart = document.querySelector('.count-to-start');
             displayControl.turnOffDisplay(elements.loadingScreen);
             displayControl.turnOnDisplay(elements.gameScreen);
             countToStart.play();
+            delayGame();
         }, 7000);
     }
     startButton.addEventListener('click', () => {
@@ -234,8 +243,20 @@ const characterScreen = (() => {
         playerTwoCharName.innerHTML = player2Name;
 
         openGame();
-
+        
     })
+
+    let gameStatus = 'off';
+    const status = (stat) => {
+        if(stat == 'on'){
+            console.log('The game is on!');
+            gameStatus = 'on';
+        } else if(stat == 'off') {
+            console.log('The game is off!');
+            gameStatus = 'off';
+        } 
+    };
+
 
     return {
         player1Name,
@@ -247,8 +268,9 @@ const characterScreen = (() => {
 })();
 
 const loadingScreen = (() => {
+
 })();
 
-const gameScreen = (() => {
+const gameController = (() => {
 
 })();
