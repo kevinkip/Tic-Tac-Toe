@@ -118,9 +118,11 @@ const characterScreen = (() => {
     let player2Name;
     let player1Pic;
     let player2Pic;
-
     // start game button not present until characters are chosen.
     const startButton = document.querySelector('.button');
+
+    startButton.disabled = true;
+
     const capFirstLet = (string) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
@@ -223,27 +225,48 @@ const characterScreen = (() => {
             delayGame();
         }, 7000);
     }
+
+    const playerOne = document.querySelector('.imgP1');
+    const playerTwo = document.querySelector('.imgP2');
+
+    const playerOneCharName = document.querySelector('.nameP1');
+    const playerTwoCharName = document.querySelector('.nameP2')
+
+    const addMessage = () => {
+        let count = 0;
+
+        const newDiv = document.createElement('div');
+        const prompt = document.createTextNode("Please select both characters");
+        const newEl = newDiv.appendChild(prompt);
+        console.log(prompt);
+        const readyToFight = document.querySelector('.readyToFight');
+        readyToFight.appendChild(newEl);
+    }
+
     startButton.addEventListener('click', () => {
 
-        displayControl.turnOffDisplay(elements.chooseCharacter);
-        displayControl.turnOnDisplay(elements.loadingScreen);
-        // elements.titleSound.pause();
-        timeOut();
-        fading();
-        const playerOne = document.querySelector('.imgP1');
-        const playerTwo = document.querySelector('.imgP2');
-
-        const playerOneCharName = document.querySelector('.nameP1');
-        const playerTwoCharName = document.querySelector('.nameP2')
-        
-        playerOne.setAttribute('src', `${player1Pic}`);
-        playerTwo.setAttribute('src', `${player2Pic}`);
-
-        playerOneCharName.innerHTML = player1Name;
-        playerTwoCharName.innerHTML = player2Name;
-
-        openGame();
-        
+        if(elements.playerOneName.value == 'Player 1' || elements.playerTwoName.value == 'BOT'){
+            if(addMessage.count == 1){
+                addMessage.newEl.style.color = 'red';
+            } else {
+                addMessage();
+                addMessage.count = 1;
+            }
+        } else{
+            startButton.disabled = false;
+            displayControl.turnOffDisplay(elements.chooseCharacter);
+            displayControl.turnOnDisplay(elements.loadingScreen);
+            // elements.titleSound.pause();
+            timeOut();
+            fading();
+            playerOne.setAttribute('src', `${player1Pic}`);
+            playerTwo.setAttribute('src', `${player2Pic}`);
+    
+            playerOneCharName.innerHTML = player1Name;
+            playerTwoCharName.innerHTML = player2Name;
+    
+            openGame();  
+        }
     })
 
     let gameStatus = 'off';
