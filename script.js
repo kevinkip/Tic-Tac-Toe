@@ -223,6 +223,8 @@ const characterScreen = (() => {
             displayControl.turnOnDisplay(elements.gameScreen);
             countToStart.play();
             delayGame();
+            elements.body.style.cursor = `url('images/cursor/player1.png'), auto`;       
+
         }, 7000);
     }
 
@@ -264,7 +266,7 @@ const characterScreen = (() => {
     
             playerOneCharName.innerHTML = player1Name;
             playerTwoCharName.innerHTML = player2Name;
-    
+
             openGame();  
         }
     })
