@@ -9,7 +9,7 @@
   </a>
 </p>
 
-![]([https://github.com/kevinkip/kevinbnb/blob/master/public/images/Kevinbnb.gif](https://github.com/kevinkip/Tic-Tac-Toe/blob/main/images/Super%20Tic%20Tac%20Toe%20Melee.gif))
+![](https://github.com/kevinkip/Tic-Tac-Toe/blob/main/images/Super%20Tic%20Tac%20Toe%20Melee.gif)
 
 # What was my motivation?
 - I wanted to add some "pizazz" to the Tic Tac Toe project tasked to me on The Odin Project. And what better way to do it than to make something as complex as mixing Super Smash Bros and Tic Tac Toe 😂
